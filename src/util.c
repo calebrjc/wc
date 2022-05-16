@@ -7,7 +7,7 @@ void print_stats(const WordCountResult result, const double elapsed_sec) {
     printf("Total chars: %ld\n", result.char_count);
     printf("Total words: %ld\n", result.word_count);
     printf("Total lines: %ld\n", result.line_count);
-    printf("Runtime: %0.3f\n", elapsed_sec);
+    printf("Runtime: %0.3f seconds\n", elapsed_sec);
 }
 
 void perror_and_exit(const char *message) {
@@ -16,19 +16,12 @@ void perror_and_exit(const char *message) {
 }
 
 long get_file_size(const char *file_name) {
-    // Open the file
-    FILE *file = fopen(file_name, "r");
-    if (!file) {
-        return -1;
-    }
-
     // Get the file's size
     struct stat file_status;
     if (stat(file_name, &file_status) < 0) {
         return -1;
     }
     long file_size = file_status.st_size;
-    fclose(file);
 
     return file_size;
 }
