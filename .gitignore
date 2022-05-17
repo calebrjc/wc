@@ -54,3 +54,4 @@ dkms.conf
 
 # Editor-specific configuration
 .vscode/
+.clang-format
