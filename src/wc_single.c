@@ -7,6 +7,9 @@
 #include "util.h"
 
 // Entry point for the wc_single program
+//
+// This program is the single-process version of what you will be implementing in wc_multi.c. You
+// may use this program as a starting point and reference for that program.
 int main(int argc, char **argv) {
     // Argument validation
     if (argc < 2 || 3 < argc) {
@@ -15,7 +18,7 @@ int main(int argc, char **argv) {
     }
 
     for (int i = 0; i < argc; i++) {
-        if (strncmp(argv[i], "-v", strlen(argv[i]))) {
+        if (strncmp(argv[i], "-v", strlen(argv[i])) == 0) {
             logger_init(NULL, LOGGER_LOGLEVEL_DEBUG);
             break;
         }
